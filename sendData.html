@@ -18,7 +18,7 @@
     <script src="jslibs/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="jslibs/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     
-    <!-- <script src="jslibs/jquery.js"></script> -->
+    <script src="jslibs/jquery.js"></script>
     
     <script>
 
@@ -28,12 +28,14 @@ $( document ).ready(function() {
 
     $( "#btn1" ).click( function(){
         console.log("bunda");
-        // $("#btn1").hide();
+        $("#btn1").hide();
         $( "#loading" ).show();
         $.get(
             {url: "https://e2jul0o1x2.execute-api.us-east-1.amazonaws.com/Prod/fetchcars",
         success:function(data){
+                                $("#loading").html("Sucess!");
                                 console.log("Success!");
+                                $("#btn1").show();
                 }
             
         });
