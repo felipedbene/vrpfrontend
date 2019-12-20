@@ -29,7 +29,8 @@ $( document ).ready(function() {
     $( "#btn1" ).click( function(){
         console.log("bunda");
         $("#btn1").hide();
-        $( "#loading" ).show();
+        $("#loading").show();
+        $( "#loading").html("Running ... <div class=\"spinner-border\"></div>")
         $.get(
             {url: "https://e2jul0o1x2.execute-api.us-east-1.amazonaws.com/Prod/fetchcars",
         success:function(data){
@@ -70,7 +71,7 @@ $( document ).ready(function() {
         
      </p>
 
-     <button id="btn1" type="button" class="btn btn-primary disabled" >Load Files</button><div id="loading">Running ... <div class="spinner-border"></div></div>
+     <button id="btn1" type="button" class="btn btn-primary disabled" >Load Files</button><div id="loading"></div>
     </div>
   </body>
 </html>
