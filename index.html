@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>VRP Application</title>
+  </head>
+  <body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="jslibs/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="jslibs/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="jslibs/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <div class="container-fluid border"> 
+        <div class="container-fluid border"> 
+            <nav class="navbar bg-dark"> 
+                <a class="navbar-brand" href="index.html"><img class="img-fluid" alt="Logo" style="max-width: 40%;" src="imgs/logo.png"></a>
+                 <ul class="ml-auto nav">
+                   <li class="nav-item">
+                     <a class="text-light nav-link" href="sendData.html" color="white">Send data to S3</a>
+                   </li>
+                   <li class="nav-item">
+                     <a class="text-light nav-link" href="#" color="white" >Schedule a Sage Maker Job</a>
+                   </li>
+                   <li class="nav-item">
+                     <a class="text-light nav-link" href="#" color="white"> See Job Results</a>
+                   </li>
+                   <li class="nav-item">
+                     <a class="text-light nav-link disabled" href="#">Log Out</a>
+                   </li>
+                 </ul>
+             </nav>
+          
+     
+         
+      <h1>Vehicle Routing Problem</h1>
+      <p> This a Proof of Concept (POC) frontend to allow users to load data from the legacy system (MS SQL 2012 Based). 
+      The idea is to add Machine Learning capabilities to an old application in a complete serverless way.
+      </p>
+      <p><h3>Problem statement</h3>
+        <img src="imgs/Model.png" class="img-fluid rounded mx-auto d-block" alt="Graphical Problem Definition">
+      </p>
+      <p>Based on that list of vehicles that have to be delivered, this data is fed into <abbr title="S3 Bucket"> sm-input-bucket</abbr> where all the process start.
+        Having that data in that bucket, <abbr title="lambda function">runModel.py</abbr> function is triggered. This function has two main objectives :
+        Update the state table on <abbr title="Key-value pair database">Dynamo DB</abbr> with vehicles involved in the Sage Maker Job and trigger it.
+        Send that data to a S3 Bucket to allow a Amazon Sage Maker to calculate the best delivery route using Machine Learning.</li>
+        Results can be seen here.</p>
+        <p>Once Machine Learning has finished running, the user can see a rendered image with the best-rewarded route.</p>
+    <p>This can be best depicted in this diagram : 
+        <img src="imgs/arquitecture.png" class="img-fluid rounded mx-auto d-block" alt="architecture">
+    </p>
+    </div>
+    
+  </body>
+</html>

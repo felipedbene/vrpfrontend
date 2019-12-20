@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>VRP Application</title>
+  </head>
+  <body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="jslibs/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="jslibs/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="jslibs/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <!-- <script src="jslibs/jquery.js"></script> -->
+    
+    <script>
+
+$( document ).ready(function() {
+ 
+    $("#loading").hide();
+
+    $( "#btn1" ).click( function(){
+        console.log("bunda");
+        // $("#btn1").hide();
+        $( "#loading" ).show();
+        $.get(
+            {url: "https://e2jul0o1x2.execute-api.us-east-1.amazonaws.com/Prod/fetchcars",
+        success:function(data){
+                                console.log("Success!");
+                }
+            
+        });
+
+    })
+         
+});
+    </script>
+    
+    
+    <div class="container-fluid border"> 
+        <div class="container-fluid border"> 
+            <nav class="navbar bg-dark"> 
+                <a class="navbar-brand" href="index.html"><img class="img-fluid" alt="Logo" style="max-width: 40%;" src="imgs/logo.png"></a>
+                 <ul class="ml-auto nav">
+                   <li class="nav-item">
+                     <a class="text-light nav-link" href="sendData.html" color="white">Send data to S3</a>
+                   </li>
+                   <li class="nav-item">
+                     <a class="text-light nav-link" href="#" color="white" >Schedule a Sage Maker Job</a>
+                   </li>
+                   <li class="nav-item">
+                     <a class="text-light nav-link" href="#" color="white"> See Job Results</a>
+                   </li>
+                   <li class="nav-item">
+                     <a class="text-light nav-link disabled" href="#">Log Out</a>
+                   </li>
+                 </ul>
+             </nav>
+    <h3>Let's load some data !</h3>
+     <p>The following button will do a query on MS SQL Server in the civar_ford Database into our Bucket for later processing.
+        
+     </p>
+
+     <button id="btn1" type="button" class="btn btn-primary disabled" >Load Files</button><div id="loading">Running ... <div class="spinner-border"></div></div>
+    </div>
+  </body>
+</html>
